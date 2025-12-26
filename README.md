@@ -1,68 +1,60 @@
-ESP Filament Tracker
+🧵 ESP Filament Tracker
 
-Ein leichtgewichtiger, Web-basierter Filament-Manager für ESP32 und ESP8266. Verwalte dein 3D-Druck-Material, behalte den Überblick über Restmengen und drucke QR-Code-Etiketten direkt von deinem Mikrocontroller.
+A lightweight, web-based filament management system designed for ESP32. Effortlessly manage your 3D printing materials, track remaining stock, and print QR code labels directly from your microcontroller.
 ✨ Features
 
-    Dual-Plattform Support: Kompatibel mit ESP32 und ESP8266.
+    ESP32 Support: Full compatibility with the ESP32 family (S2, S3, C3, C6, and classic ESP32).
 
-    Web-Interface: Komplett responsive Oberfläche (Dark/Light Mode) für Desktop und Smartphone.
+    Web Interface: Fully responsive UI with Dark & Light Mode support for both desktop and mobile.
 
-    QR-Code Generator: Erstellt Etiketten für deine Spulen, die direkt zum Bearbeitungsmenü führen.
+    QR Code Generator: Create labels for your spools that link directly to the filament’s edit menu.
 
-    Inventar-Management: Speichert bis zu 250 Filamente mit Details wie Hersteller, Material, Farbe, Temperatur-Settings und Gewicht.
+    Inventory Management: Store up to 250 filaments with details like manufacturer, material, color, temperature settings, and weight.
 
-    Verbrauchsrechner: Ziehe einfach das Gewicht des verbrauchten Filaments nach einem Druck ab.
+    Usage Calculator: Easily subtract the weight used after a print to keep your inventory accurate.
 
-    WiFi-Captive-Portal: Einfache Einrichtung der WLAN-Daten über einen Access Point.
+    WiFi Captive Portal: Effortless WiFi configuration via a dedicated setup Access Point.
 
-    Backup & Restore: Lade deine Datenbank als Binärdatei herunter und stelle sie jederzeit wieder her.
+    Backup & Restore: Download your entire database as a binary file and restore it whenever needed.
 
-    Mehrsprachig: Unterstützt Deutsch und Englisch.
+    Multilingual: Supports both English and German.
 
-🛠 Hardware-Anforderungen
+🛠 Hardware Requirements
 
-    Mikrocontroller: ESP32 oder ESP8266 (z.B. NodeMCU, Wemos D1 Mini).
+    Microcontroller: ESP32 series (S2, S3, C3, C6, or standard ESP32).
 
-    Speicher: Nutzt das SPIFFS (Serial Peripheral Interface Flash File System) zur Datenspeicherung.
+    Storage: Utilizes SPIFFS (Serial Peripheral Interface Flash File System) for internal data persistence.
 
 🚀 Installation
+1. Web Flasher
 
-    Stelle sicher, dass du die Arduino IDE oder PlatformIO installiert hast.
+Visit the Web Flasher [link your flasher URL here], select your specific board, and click Flash.
+2. First-Time Setup (WiFi)
 
-    Installiere die benötigten Boards (ESP32 oder ESP8266) über den Board-Verwalter.
+    After flashing, the ESP will create a WiFi Access Point named Filament-Tracker-Setup.
 
-    Kopiere den Code aus der .ino Datei in ein neues Sketch.
+    Connect to this network using your smartphone or PC.
 
-    Wähle dein Board aus und klicke auf Upload.
+    The setup page should open automatically (Captive Portal). Select your home WiFi network and enter the password.
 
-    Wichtig: Der ESP nutzt SPIFFS. Beim ersten Start wird das Dateisystem automatisch formatiert.
+    The ESP will restart and join your network. It can now be reached via its assigned IP address.
 
-Erstmalige Einrichtung (WiFi)
+📂 File Structure & Data Storage
 
-    Nach dem Flashen öffnet der ESP einen Access Point namens Filament-Tracker-Setup.
+The tracker manages two main files within the internal flash memory:
 
-    Verbinde dich mit deinem Smartphone/PC mit diesem Netzwerk.
+    /wifi.txt: Stores your encrypted WiFi credentials.
 
-    Die Setup-Seite sollte automatisch erscheinen (Captive Portal). Wähle dein WLAN aus und gib das Passwort ein.
-
-    Der ESP startet neu und ist nun unter seiner IP-Adresse in deinem Netzwerk erreichbar.
-
-📂 Dateistruktur & Datenspeicherung
-
-Der Tracker speichert zwei Dateien im internen Flash-Speicher:
-
-    /wifi.txt: Enthält deine WLAN-Zugangsdaten.
-
-    /data.bin: Eine Binärdatei, die das gesamte Filament-Inventar (struct Filament) enthält.
+    /data.bin: A binary file containing the entire filament inventory (struct Filament).
 
 🖥 Screenshots / UI
 
-    Dashboard: Übersicht aller Spulen mit Fortschrittsbalken (Restmenge).
+    Dashboard: Overview of all spools with visual progress bars indicating remaining filament.
 
-    Edit-Modus: Anpassen von Temperaturen und Gewichten.
+    Edit Mode: Adjust temperatures, weights, and manufacturer details.
 
-    QR-Label: Druckfertige Ansicht für dein Filament-Regal.
+    QR Label: A print-ready view designed for physical labeling of your filament shelves or spools.
 
-📝 Lizenz
+📝 License
 
-Dieses Projekt ist unter der MIT-Lizenz veröffentlicht. Du kannst es gerne für private Zwecke nutzen und modifizieren.
+This project is released under the MIT License. You are free to use, modify, and distribute it for private and commercial purposes.
