@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Filament Tracker – ESP32 Installer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script>
+    if (location.protocol === 'http:' && location.hostname !== 'localhost') {
+      location.replace(`https://${location.hostname}${location.pathname}${location.search}`);
+    }
+  </script>
+
+  <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js"></script>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: #1e1e1e;
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.5);
+      position: relative;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+    }
+    .lang-switch button {
+      background: #333;
+      color: white;
+      border: 1px solid #444;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 12px;
+      transition: background 0.2s;
+    }
+    .lang-switch button.active {
+      background: #4caf50;
+      border-color: #4caf50;
+    }
+    h1 {
+      margin-top: 0;
+      font-size: 26px;
+      padding-right: 80px; 
+    }
+    .step {
+      margin: 15px 0;
+      padding: 12px;
+      background: #252525;
+      border-radius: 10px;
+      font-size: 15px;
+      border-left: 4px solid #4caf50;
+    }
+    
+    .install {
+      text-align: center;
+      margin: 30px 0;
+      padding: 30px;
+      background: #252525;
+      border-radius: 12px;
+      border: 1px solid #333;
+    }
+
+    esp-web-install-button {
+      --esp-tools-button-color: #444;
+      --esp-tools-button-text-color: #ffffff;
+      font-size: 18px;
+      transition: all 0.2s ease-in-out;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    esp-web-install-button:hover {
+      --esp-tools-button-color: #4caf50;
+      filter: drop-shadow(0 0 10px rgba(76, 175, 80, 0.4));
+    }
+
+    esp-web-install-button:active {
+      transform: scale(0.97);
+    }
+
+    esp-web-install-button::part(button) {
+      cursor: pointer;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #ccc;
+      margin-top: 20px;
+      line-height: 1.8;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 3px solid #666;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 11px;
+      color: #555;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="lang-switch">
+      <button onclick="setLanguage('de')" id="btn-de" class="active">DE</button>
+      <button onclick="setLanguage('en')" id="btn-en">EN</button>
+    </div>
+
+    <h1 id="title" 
+        data-de="🧵 Filament Tracker – ESP32" 
+        data-en="🧵 Filament Tracker – ESP32">
+        🧵 Filament Tracker – ESP32
+    </h1>
+
+    <p id="desc" 
+       data-de="Installiere die Firmware direkt auf deinen ESP32 – ohne Arduino IDE und ohne Treiberchaos." 
+       data-en="Install the firmware directly to your ESP32 – without Arduino IDE and without driver chaos.">
+       Installiere die Firmware direkt auf deinen ESP32 – ohne Arduino IDE und ohne Treiberchaos.
+    </p>
+
+    <div class="step" id="step1" 
+         data-de="➜ ESP32 per USB anschließen" 
+         data-en="➜ Connect ESP32 via USB">➜ ESP32 per USB anschließen</div>
+    
+    <div class="step" id="step2" 
+         data-de="➜ Chrome oder Edge öffnen" 
+         data-en="➜ Open Chrome or Edge">➜ Chrome oder Edge öffnen</div>
+    
+    <div class="step" id="step3" 
+         data-de="➜ Auf „Firmware installieren“ klicken" 
+         data-en="➜ Click on 'Install Firmware'">➜ Auf „Firmware installieren“ klicken</div>
+
+    <div class="install">
+      <esp-web-install-button manifest="manifest.json">
+        <span slot="activate" 
+              data-de="🚀 Firmware installieren" 
+              data-en="🚀 Install Firmware">🚀 Firmware installieren</span>
+      </esp-web-install-button>
+    </div>
+
+<div class="note" id="note" 
+     data-de="➜ Falls der Access Point nicht gefunden wird, kurz <b>Reset drücken</b> und ca. <b>30 Sekunden warten</b><br>
+              ➜ WLAN „<b>Filament-Tracker-Setup</b>“ am PC/Handy suchen<br>
+              ➜ Verbinden & Browser öffnen (oder 192.168.4.1 aufrufen)<br>
+              ➜ Eigene WLAN-Daten eingeben & speichern<br>
+              ➜ Der ESP32 startet danach automatisch neu<br>
+              ➜ IP-Adresse wird im Router angezeigt" 
+     data-en="➜ If the access point is not found, briefly press <b>Reset</b> and wait about <b>30 seconds</b><br>
+              ➜ Search for Wi-Fi '<b>Filament-Tracker-Setup</b>' on PC/Phone<br>
+              ➜ Connect & open browser (or go to 192.168.4.1)<br>
+              ➜ Enter your Wi-Fi credentials & save<br>
+              ➜ The ESP32 restarts automatically afterwards<br>
+              ➜ IP address will be displayed in the router">
+  ➜ Falls der Access Point nicht gefunden wird, kurz <b>Reset drücken</b> und ca. <b>30 Sekunden warten</b><br>
+  ➜ WLAN „<b>Filament-Tracker-Setup</b>“ am PC/Handy suchen<br>
+  ➜ Verbinden & Browser öffnen (oder 192.168.4.1 aufrufen)<br>
+  ➜ Eigene WLAN-Daten eingeben & speichern<br>
+  ➜ Der ESP32 startet danach automatisch neu<br>
+  ➜ IP-Adresse wird im Router angezeigt
+</div>
+
+
+    <footer>
+      FILAMENT TRACKER PROJECT © 2025<br>
+      POWERED BY ESP-WEB-TOOLS
+
+
+ <a href='https://www.acadoo.de/leistungen/ghostwriter-doktorarbeit/'>Doktorarbeit akad. Writer</a> <script type='text/javascript' src='https://www.fastcounter.net/auth.php?id=1edfbd88e7ef669452c337522b045b40c951f95c'></script>
+<script type="text/javascript" src="https://www.fastcounter.net/de/home/counter/1467032/t/0"></script>
+    </footer>
+  </div>
+
+  <script>
+    function setLanguage(lang) {
+      document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+      const elements = document.querySelectorAll('[data-de]');
+      elements.forEach(el => {
+        const text = el.getAttribute('data-' + lang);
+        if (el.tagName === 'SPAN' || el.tagName === 'DIV' || el.tagName === 'P' || el.tagName === 'H1') {
+          el.innerHTML = text;
+        } else {
+          el.textContent = text;
+        }
+      });
+
+      document.documentElement.lang = lang;
+    }
+  </script>
+
+</body>
+</html>
+
