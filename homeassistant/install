@@ -1,4 +1,4 @@
-Create a Sensor 
+Create a Sensor in the configuration.yaml
 
 sensor:
   - platform: rest
@@ -9,5 +9,7 @@ sensor:
     value_template: "{{ value_json.filaments | length }}"
     json_attributes:
       - filaments
+
+Cheak your settings and restart home assistant
 
 This will create a entitiy calling sensor.filament_tracker
