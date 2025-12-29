@@ -9,3 +9,5 @@ sensor:
     value_template: "{{ value_json.filaments | length }}"
     json_attributes:
       - filaments
+
+This will create a entitiy calling sensor.filament_tracker
